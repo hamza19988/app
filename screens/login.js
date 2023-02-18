@@ -1,42 +1,75 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
-const Login = () => {
+export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigation = useNavigation();
 
-  const handleSubmit = () => {
-    // Perform login logic here, such as sending a request to a server
-    console.log(`Email: ${email}, Password: ${password}`);
-    useNavigation.navigate('Home');
+  const handleLogin = () => {
+    console.log('Email:', email);
+    console.log('Password:', password);
+    // Implement your login logic here
+
+    // Navigate to the home screen if login is successful
+    navigation.navigate('Home');
   };
 
   return (
-    
-    <View>
-      <Text>Email:</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
       <TextInput
+        style={styles.input}
+        placeholder="Email"
         value={email}
-        onChangeText={text => setEmail(text)}
-        placeholder="Enter your email"
-        keyboardType="email-address"
-        autoCompleteType="email"
-        textContentType="emailAddress"
+        onChangeText={(text) => setEmail(text)}
       />
-      <Text>Password:</Text>
       <TextInput
+        style={styles.input}
+        placeholder="Password"
         value={password}
-        onChangeText={text => setPassword(text)}
-        placeholder="Enter your password"
-        secureTextEntry={true}
+        onChangeText={(text) => setPassword(text)}
+        secureTextEntry
       />
-      <TouchableOpacity onPress={handleSubmit}>
-        <Text>Submit</Text>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
     </View>
   );
-};
+}
 
-export default Login;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ffffff',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 30,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    borderRadius: 5,
+    width: '80%',
+    height: 40,
+    padding: 10,
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: '#0077cc',
+    borderRadius: 5,
+    width: '80%',
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: '#ffffff',
+    fontSize: 16,
+  },
+});
