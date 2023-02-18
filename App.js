@@ -6,7 +6,11 @@ import { useFonts } from "expo-font";
 import Home from "./screens/Home";
 import Details from "./screens/Details";
 import login from "./screens/login";
-import admin from "./screens/admin";
+import news from "./screens/news";
+import AdminScreen from "./screens/AdminScreen";
+import Manager from "./screens/Manager";
+import User from "./screens/User";
+import dash from "./screens/dash";
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -36,10 +40,13 @@ const App = () => {
         }}
       
       >
-        <Stack.Screen name="admin" component={admin} />
+         <Stack.Screen name="User" component={User} />
+        <Stack.Screen name="AdminScreen" component={AdminScreen} />
+        <Stack.Screen name="news" component={news} />
         <Stack.Screen name="login" component={login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Details" component={Details} />
+        <Stack.Screen name="Manager" component={Manager} />
       </Stack.Navigator>
     </NavigationContainer>
   );
