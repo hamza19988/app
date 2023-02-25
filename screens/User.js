@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const User = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeButton, setActiveButton] = useState('button1');
+  const [activeButton, setActiveButton] = useState('button');
   const navigation = useNavigation();
 
   const handleButtonPress = (buttonName) => {
@@ -14,70 +14,98 @@ const User = () => {
 
     if (buttonName === 'button1') {
         navigation.navigate('news');
-      } else if (buttonName === 'button2') {
-        navigation.navigate('login');
-      } else if (buttonName === 'button3') {
-        navigation.navigate('login');
+      } 
+      else if (buttonName === 'button2') {
+        navigation.navigate('Payroll');
+      } 
+      else if (buttonName === 'button3') {
+        navigation.navigate('Stillempty');
+      } 
+      else if (buttonName === 'button4') {
+        navigation.navigate('AgentScheduleScreen');
       }
+      else if (buttonName === 'button5') {
+        navigation.navigate('Mates');
+      }
+      else if (buttonName === 'button6') {
+        navigation.navigate('Interchange');
+      };
+      
   }
 
   return (
-    <View style={styles.container}>
-      {/* Hamburger icon to toggle the menu */}
-      <TouchableOpacity
-        style={styles.hamburger}
-        onPress={() => setMenuOpen(!menuOpen)}
-        activeOpacity={0.7}>
-        <Ionicons name="menu" size={32} color="#fff" />
-      </TouchableOpacity>
-
-      {/* Side menu */}
-      <View style={[styles.sideMenu, menuOpen ? styles.sideMenuOpen : styles.sideMenuClosed]}>
+      <View style={styles.container}>
+        {/* Hamburger icon to toggle the menu */}
         <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'button1' && styles.activeButton]}
-          onPress={() => handleButtonPress('button1')}>
-          <Ionicons name="home" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Home</Text>
+          style={styles.hamburger}
+          onPress={() => setMenuOpen(!menuOpen)}
+          activeOpacity={0.7}>
+          <Ionicons name="menu" size={32} color="#FFFFFF" />
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'button2' && styles.activeButton]}
-          onPress={() => handleButtonPress('button2')}>
-          <Ionicons name="cash-outline" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Payroll</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'Button3' && styles.activeButton]}
-          onPress={() => handleButtonPress('Button3')}>
-          <Ionicons name="bar-chart-outline" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Dashboard Quality</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'Button 4' && styles.activeButton]}
-          onPress={() => handleButtonPress('Button 4')}>
-          <Ionicons name="calendar-outline" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Schedule</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'SI' && styles.activeButton]}
-          onPress={() => handleButtonPress('SI')}>
-          <Ionicons name="people-outline" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Mates </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'button 5' && styles.activeButton]}
-          onPress={() => handleButtonPress('button 5')}>
-          <Ionicons name="calendar-outline" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Schedule Interchange</Text>
-        </TouchableOpacity>
+    
+        {/* Side menu */}
+        <View style={[styles.sideMenu, menuOpen ? styles.sideMenuOpen : styles.sideMenuClosed]}>
+          <TouchableOpacity
+            style={[styles.menuButton, activeButton === 'button1' && styles.activeButton]}
+            onPress={() => handleButtonPress('button1')}>
+            <Ionicons name="home" size={24} color="#003366" />
+            <Text style={styles.menuButtonText}>Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.menuButton, activeButton === 'button2' && styles.activeButton]}
+            onPress={() => handleButtonPress('button2')}>
+            <Ionicons name="cash-outline" size={24} color="#003366" />
+            <Text style={styles.menuButtonText}>Payroll</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.menuButton, activeButton === 'button3' && styles.activeButton]}
+            onPress={() => handleButtonPress('button3')}>
+            <Ionicons name="bar-chart-outline" size={24} color="#003366" />
+            <Text style={styles.menuButtonText}>Dashboard Quality</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.menuButton, activeButton === 'button4' && styles.activeButton]}
+            onPress={() => handleButtonPress('button4')}>
+            <Ionicons name="calendar-outline" size={24} color="#003366" />
+            <Text style={styles.menuButtonText}>Schedule</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.menuButton, activeButton === 'button5' && styles.activeButton]}
+            onPress={() => handleButtonPress('button5')}>
+            <Ionicons name="people-outline" size={24} color="#003366" />
+            <Text style={styles.menuButtonText}>Team Mates </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.menuButton, activeButton === 'button6' && styles.activeButton]}
+            onPress={() => handleButtonPress('button6')}>
+            <Ionicons name="calendar-outline" size={24} color="#003366" />
+            <Text style={styles.menuButtonText}>Schedule Interchange</Text>
+          </TouchableOpacity>
+        </View>
+    
+        {/* Content area */}
+        <View style={styles.content}>
+          <View style={styles.topBar}>
+            {/* Back arrow icon */}
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              activeOpacity={0.7}>
+              <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+            </TouchableOpacity>
+    
+            {/* Page title */}
+            <Text style={styles.heading}>User</Text>
+    
+            {/* Dummy icon for spacing */}
+            <Ionicons name="menu" size={24} color="#003366" />
+          </View>
+    
+          {/* Subheading */}
+          <Text style={styles.subheading}>Select a button from the side menu to navigate.</Text>
+        </View>
       </View>
-
-      {/* Content area */}
-      <View style={styles.content}>
-        <Text style={styles.heading}>Welcome to the user screen</Text>
-        <Text style={styles.subheading}>Select a button from the side menu to navigate.</Text>
-      </View>
-    </View>
-  );
+    );
+    
 }
 
 const styles = StyleSheet.create({
@@ -89,33 +117,50 @@ const styles = StyleSheet.create({
   hamburger: {
     backgroundColor: '#292929',
     padding: 10,
+    
+  },
+  hamburgerText: {
+    color: '#fff',
+    fontSize: 20,
   },
   sideMenu: {
-    backgroundColor: '#292929',
+    backgroundColor: '#fff',
     paddingVertical: 20,
-    paddingHorizontal: 0.5,
-    width: 50,
+    paddingHorizontal: 10,
+    width: 0,
+    overflow: 'hidden',
+    transitionDuration: '0.5s',
+    marginBottom: 10,
+    marginTop: 70,
   },
   sideMenuOpen: {
-    width: '50%',
+    width: 200,
   },
   sideMenuClosed: {
-    width: 0,
+    width: 10,
   },
   menuButton: {
     flexDirection: 'row',
     paddingVertical: 10,
     marginBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#0d6efd',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     paddingHorizontal: 15,
+    shadowColor: '#000000',
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    elevation: 5,
   },
   activeButton: {
-    backgroundColor: '#005ca9',
+    backgroundColor: '#fff',
   },
   menuButtonText: {
-    color: '#fff',
+    color: '#003366',
     fontSize: 18,
     fontWeight: 'bold',
     marginLeft: 10,
@@ -132,12 +177,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
+    color: '#fff'
   },
   subheading: {
     fontSize: 18,
-    color: '#888',
+    color: '#fff',
     textAlign: 'center',
+    marginTop: 10,
+    marginBottom: 20,
+    color: '#c9c9c9'
   },
 });
-
 export default User;

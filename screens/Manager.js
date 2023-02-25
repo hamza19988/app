@@ -15,9 +15,15 @@ const Manager = () => {
     if (buttonName === 'button1') {
         navigation.navigate('news');
       } else if (buttonName === 'button2') {
-        navigation.navigate('login');
-      } else if (buttonName === 'button3') {
-        navigation.navigate('login');
+        navigation.navigate('Stillempty');
+      } else if (buttonName === 'button4') {
+        navigation.navigate('Stillempty');
+      }else if (buttonName === 'button5') {
+        navigation.navigate('Stillempty');
+      }else if (buttonName === 'button6') {
+        navigation.navigate('Stillempty');
+      }else if (buttonName === 'button7') {
+        navigation.navigate('Stillempty');
       }
   }
 
@@ -36,43 +42,43 @@ const Manager = () => {
         <TouchableOpacity
           style={[styles.menuButton, activeButton === 'button1' && styles.activeButton]}
           onPress={() => handleButtonPress('button1')}>
-          <Ionicons name="home" size={24} color="#fff" />
+          <Ionicons name="home" size={24} color="#003366" />
           <Text style={styles.menuButtonText}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.menuButton, activeButton === 'button2' && styles.activeButton]}
           onPress={() => handleButtonPress('button2')}>
-          <Ionicons name="bar-chart-outline" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Dashboard Staffing</Text>
+          <Ionicons name="bar-chart-outline" size={24} color="#003366" />
+          <Text style={styles.menuButtonText}>Staffing Dashboard</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'Button3' && styles.activeButton]}
-          onPress={() => handleButtonPress('Button3')}>
-          <Ionicons name="bar-chart-outline" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Dashboard Absence</Text>
+          style={[styles.menuButton, activeButton === 'button3' && styles.activeButton]}
+          onPress={() => handleButtonPress('button3')}>
+          <Ionicons name="bar-chart-outline" size={24} color="#003366" />
+          <Text style={styles.menuButtonText}>Absence Dashboard</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'Button 4' && styles.activeButton]}
-          onPress={() => handleButtonPress('Button 4')}>
-          <Ionicons name="time-outline" size={24} color="#fff" />
+          style={[styles.menuButton, activeButton === 'button4' && styles.activeButton]}
+          onPress={() => handleButtonPress('button4')}>
+          <Ionicons name="time-outline" size={24} color="#003366" />
           <Text style={styles.menuButtonText}>Working Hours</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'SI' && styles.activeButton]}
-          onPress={() => handleButtonPress('SI')}>
-          <Ionicons name="rocket-outline" size={24} color="#fff" />
-          <Text style={styles.menuButtonText}>Dashboard Quality </Text>
+          style={[styles.menuButton, activeButton === 'button5' && styles.activeButton]}
+          onPress={() => handleButtonPress('button5')}>
+          <Ionicons name="rocket-outline" size={24} color="#003366" />
+          <Text style={styles.menuButtonText}>Quality Dashboard</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'button 5' && styles.activeButton]}
-          onPress={() => handleButtonPress('button 5')}>
-          <Ionicons name="people-outline" size={24} color="#fff" />
+          style={[styles.menuButton, activeButton === 'button6' && styles.activeButton]}
+          onPress={() => handleButtonPress('button6')}>
+          <Ionicons name="people-outline" size={24} color="#003366" />
           <Text style={styles.menuButtonText}>My Team</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.menuButton, activeButton === 'button 6' && styles.activeButton]}
-          onPress={() => handleButtonPress('button 6')}>
-          <Ionicons name="calendar-outline" size={24} color="#fff" />
+          style={[styles.menuButton, activeButton === 'button7' && styles.activeButton]}
+          onPress={() => handleButtonPress('button7')}>
+          <Ionicons name="calendar-outline" size={24} color="#003366" />
           <Text style={styles.menuButtonText}>Schedule Interchange</Text>
         </TouchableOpacity>
       </View>
@@ -95,33 +101,50 @@ const styles = StyleSheet.create({
   hamburger: {
     backgroundColor: '#292929',
     padding: 10,
+    
+  },
+  hamburgerText: {
+    color: '#fff',
+    fontSize: 20,
   },
   sideMenu: {
-    backgroundColor: '#292929',
+    backgroundColor: '#fff',
     paddingVertical: 20,
-    paddingHorizontal: 0.5,
-    width: 50,
+    paddingHorizontal: 10,
+    width: 0,
+    overflow: 'hidden',
+    transitionDuration: '0.5s',
+    marginBottom: 10,
+    marginTop: 70,
   },
   sideMenuOpen: {
-    width: '50%',
+    width: 200,
   },
   sideMenuClosed: {
-    width: 0,
+    width: 10,
   },
   menuButton: {
     flexDirection: 'row',
     paddingVertical: 10,
     marginBottom: 10,
     borderRadius: 8,
-    backgroundColor: '#0d6efd',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     paddingHorizontal: 15,
+    shadowColor: '#000000',
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    elevation: 5,
   },
   activeButton: {
-    backgroundColor: '#005ca9',
+    backgroundColor: '#fff',
   },
   menuButtonText: {
-    color: '#fff',
+    color: '#003366',
     fontSize: 18,
     fontWeight: 'bold',
     marginLeft: 10,
@@ -138,12 +161,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
+    color: '#fff'
   },
   subheading: {
     fontSize: 18,
-    color: '#888',
+    color: '#fff',
     textAlign: 'center',
+    marginTop: 10,
+    marginBottom: 20,
+    color: '#c9c9c9'
   },
 });
-
 export default Manager;
