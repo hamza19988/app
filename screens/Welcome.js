@@ -30,7 +30,7 @@ const Welcome = () => {
           />
         </View>
         <Animatable.View style={[styles.footer]} animation="fadeInUpBig">
-          <Text style={[styles.title]}>Concentrix - TUN</Text>
+          <Text style={[styles.title]}>Packtech - TUN</Text>
           <Text style={styles.text}>Connectez-vous avec votre compte</Text>
           <View style={styles.containerBtn}>
           <View style={styles.buttonHelp}>
