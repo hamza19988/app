@@ -2,7 +2,6 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-
 import Home from "./screens/Home";
 import Details from "./screens/Details";
 import login from "./screens/login";
@@ -18,6 +17,9 @@ import Payroll from "./screens/user/Payroll";
 import Mates from "./screens/user/Mates";
 import Interchange from "./screens/user/Interchange";
 import Stillempty from "./screens/Stillempty";
+import Transport from "./screens/Transport";
+import Pickup from "./screens/Pickup";
+import Rideto from "./screens/Rideto";
 
 const theme = {
   ...DefaultTheme,
@@ -47,12 +49,15 @@ const App = () => {
           headerShown: false,
         }}    
 
-      >
-        <Stack.Screen name="Welcome" component={Welcome} /> 
-        <Stack.Screen name="User" component={User} />  
+      ><Stack.Screen name="Welcome" component={Welcome} /> 
+        <Stack.Screen name="Rideto" component={Rideto} /> 
+        <Stack.Screen name="Pickup" component={Pickup} /> 
         
+        <Stack.Screen name="Transport" component={Transport} /> 
+        
+        
+        <Stack.Screen name="User" component={User} />         
         <Stack.Screen name="login" component={login} />  
-        
         <Stack.Screen name="Mates" component={Mates} />
         <Stack.Screen name="Stillempty" component={Stillempty} /> 
         <Stack.Screen name="Interchange" component={Interchange} />       
